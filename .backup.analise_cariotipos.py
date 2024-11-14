@@ -1,18 +1,21 @@
 
 import os
 from Bio import SeqIO
-from Bio.SeqUtils import GC
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
 import matplotlib.pyplot as plt
 
 def analisar_cariotipos(arquivo_fasta):
+    # Carregar sequências do arquivo FASTA
     sequencias = list(SeqIO.parse(arquivo_fasta, "fasta"))
-    resultados = []
     
-    for seq in sequencias:
-        tamanho = len(seq)
-        gc_content = GC(seq.seq)
+    # Análise básica
+    resultados = []
+    for seq_record in sequencias:
+        tamanho = len(seq_record.seq)
+        gc_content = (seq_record.seq.count('G') + seq_record.seq.count('C')) / tamanho * 100
         resultados.append({
-            'nome': seq.id,
+            'nome': seq_record.id,
             'tamanho': tamanho,
             'gc_content': gc_content
         })
@@ -43,10 +46,7 @@ def visualizar_resultados(resultados):
     plt.close()
 
 if __name__ == "__main__":
-    arquivo_fasta = "exemplo_cariotipos.fasta"
-    if not os.path.exists(arquivo_fasta):
-        print(f"Erro: O arquivo {arquivo_fasta} não foi encontrado.")
-    else:
-        resultados = analisar_cariotipos(arquivo_fasta)
-        visualizar_resultados(resultados)
-        print("Análise concluída. Resultados salvos em 'resultados_cariotipos.png'")
+    arquivo_fasta = "exemplo_cariotipos.fasta"  # Substitua pelo nome do seu arquivo FASTA
+    resultados = analisar_cariotipos(arquivo_fasta)
+    visualizar_resultados(resultados)
+    print("Análise concluída. Resultados salvos em 'resultados_cariotipos.png'")
