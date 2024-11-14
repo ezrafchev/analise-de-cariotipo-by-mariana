@@ -1,7 +1,7 @@
 
 import os
 from Bio import SeqIO
-from Bio.SeqUtils import gc_fraction
+from Bio.SeqUtils import GC
 import matplotlib.pyplot as plt
 
 def analisar_cariotipos(arquivo_fasta):
@@ -10,7 +10,7 @@ def analisar_cariotipos(arquivo_fasta):
     
     for seq in sequencias:
         tamanho = len(seq)
-        gc_content = gc_fraction(seq.seq) * 100  # Convertendo para porcentagem
+        gc_content = GC(seq.seq)
         resultados.append({
             'nome': seq.id,
             'tamanho': tamanho,
