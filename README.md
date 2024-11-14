@@ -1,79 +1,76 @@
-# Análise de Cariótipos
+# Análise de Cariótipos por Imagem
 
-Este projeto realiza uma análise detalhada de cariótipos utilizando as bibliotecas BioPython, NumPy e Matplotlib. Ele foi desenvolvido por Mariana Silva de Oliveira.
+Este projeto realiza uma análise detalhada de cariótipos utilizando técnicas avançadas de processamento de imagens e aprendizado de máquina. Desenvolvido por Mariana Silva de Oliveira.
 
 ## Descrição
 
-O script `analise_cariotipos.py` lê sequências de DNA de um arquivo FASTA e realiza as seguintes análises:
+O script `analise_cariotipo_imagem.py` processa imagens de cariótipos e realiza as seguintes análises:
 
-1. Cálculo do tamanho dos cromossomos
-2. Análise do conteúdo GC e AT
-3. Cálculo do peso molecular
-4. Identificação de regiões repetitivas
-5. Simulação de densidade de genes
-6. Identificação de ilhas CpG
-7. Cálculo da complexidade da sequência
-
-O script gera um gráfico com várias visualizações dessas análises.
+1. Pré-processamento da imagem
+2. Segmentação dos cromossomos
+3. Extração de características dos cromossomos
+4. Classificação dos cromossomos
+5. Visualização dos resultados
+6. Geração de relatório detalhado
 
 ## Requisitos
 
 - Python 3.6+
-- BioPython
+- OpenCV (cv2)
 - NumPy
 - Matplotlib
+- scikit-image
+- SciPy
+- scikit-learn
 
 ## Instalação
 
 1. Clone este repositório:
    ```
-   git clone https://github.com/ezrafchev/analise-de-cariotipo-by-mariana.git
-   cd analise-de-cariotipo-by-mariana
+   git clone https://github.com/ezrafchev/analise-cariotipo-imagem.git
+   cd analise-cariotipo-imagem
    ```
 
 2. Instale as dependências:
    ```
-   pip install biopython numpy matplotlib
+   pip install opencv-python numpy matplotlib scikit-image scipy scikit-learn
    ```
 
 ## Uso
 
-1. Prepare seu arquivo FASTA com as sequências dos cromossomos. Um exemplo está incluído no arquivo `exemplo_cariotipos.fasta`.
+1. Coloque sua imagem de cariótipo no diretório do projeto.
 
-2. Execute o script:
+2. Edite a linha 165 do arquivo `analise_cariotipo_imagem.py` para apontar para o caminho da sua imagem:
+   ```python
+   caminho_imagem = "sua_imagem_cariotipo.jpg"
    ```
-   python3 analise_cariotipos.py
+
+3. Execute o script:
+   ```
+   python3 analise_cariotipo_imagem.py
    ```
 
-3. O script gerará um arquivo `resultados_cariotipos.png` com os gráficos de análise e imprimirá resultados detalhados no console.
+4. Os resultados serão salvos em:
+   - `resultados_analise_cariotipo.png`: Visualizações gráficas da análise
+   - `relatorio_cariotipo.txt`: Relatório detalhado da análise
 
-## Estrutura do Projeto
+## Funcionalidades
 
-- `analise_cariotipos.py`: Script principal para análise de cariótipos.
-- `exemplo_cariotipos.fasta`: Arquivo FASTA de exemplo com sequências de cromossomos.
-- `resultados_cariotipos.png`: Gráfico gerado com os resultados da análise.
-
-## Interpretação dos Resultados
-
-O gráfico gerado contém seis visualizações:
-
-1. Tamanho dos cromossomos: Mostra o comprimento de cada cromossomo em pares de base.
-2. Composição de bases: Exibe a porcentagem de bases GC e AT em cada cromossomo.
-3. Relação entre conteúdo GC e tamanho: Gráfico de dispersão mostrando a relação entre o conteúdo GC e o tamanho dos cromossomos.
-4. Densidade de genes (simulada): Mostra a densidade simulada de genes em cada cromossomo.
-5. Complexidade da sequência: Exibe a complexidade média da sequência para cada cromossomo.
-6. Ideograma do cariótipo: Uma representação visual simplificada do cariótipo.
-
-Além disso, o script imprime informações detalhadas sobre cada cromossomo, incluindo o número de regiões repetitivas e ilhas CpG identificadas.
+- Pré-processamento avançado da imagem
+- Segmentação precisa dos cromossomos
+- Extração de múltiplas características dos cromossomos
+- Classificação automática dos cromossomos usando K-means
+- Visualização detalhada dos resultados
+- Geração de relatório com estatísticas por grupo de cromossomos
 
 ## Limitações e Melhorias Futuras
 
-- A simulação de densidade de genes é uma aproximação e não reflete dados reais.
-- A identificação de regiões repetitivas e ilhas CpG pode ser refinada com algoritmos mais sofisticados.
+- A classificação atual assume 23 pares de cromossomos (humanos). Pode ser necessário ajustar para outras espécies.
+- A detecção de bandas é simplificada e pode ser melhorada com técnicas mais avançadas.
 - Futuros desenvolvimentos poderiam incluir:
-  - Análise de elementos regulatórios
-  - Comparações entre espécies
-  - Integração com bancos de dados genômicos
+  - Detecção automática de anomalias cromossômicas
+  - Comparação entre múltiplos cariótipos
+  - Interface gráfica para facilitar o uso
 
 ## Contribuições
 
