@@ -27,7 +27,7 @@ O script `analise_cariotipo_imagem.py` processa imagens de cariótipos e realiza
 
 1. Clone este repositório:
    ```
-   git clone https://github.com/ezrafchev/analise-cariotipo-imagem.git
+   git clone https://github.com/ezrafchev/analise-de-cariotipo-by-mariana.git
    cd analise-cariotipo-imagem
    ```
 
