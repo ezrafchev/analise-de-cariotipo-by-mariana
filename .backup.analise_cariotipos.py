@@ -47,47 +47,7 @@ def analisar_cariotipos(arquivo_fasta):
     
     return resultados
 
-def identificar_regioes_repetitivas(seq, min_repeat_length=10):
-    repeats = []
-    for i in range(len(seq) - min_repeat_length + 1):
-        for j in range(i + min_repeat_length, len(seq) + 1):
-            subseq = seq[i:j]
-            if seq.count(subseq) > 1:
-                repeats.append((i, j, len(subseq), seq.count(subseq)))
-    return repeats
-
-def simular_densidade_genes(tamanho, gene_density=0.01):
-    num_genes = int(tamanho * gene_density)
-    gene_positions = sorted(np.random.choice(tamanho, num_genes, replace=False))
-    return gene_positions
-
-def identificar_ilhas_cpg(seq, min_length=200, min_gc=50, min_obs_exp=0.6):
-    ilhas = []
-    for i in range(len(seq) - min_length + 1):
-        subseq = seq[i:i+min_length]
-        gc_content = GC(subseq)
-        obs_exp = calcular_obs_exp_cpg(subseq)
-        if gc_content >= min_gc and obs_exp >= min_obs_exp:
-            ilhas.append((i, i+min_length))
-    return ilhas
-
-def calcular_obs_exp_cpg(seq):
-    c_count = seq.count('C')
-    g_count = seq.count('G')
-    cg_count = seq.count('CG')
-    if c_count > 0 and g_count > 0:
-        exp_cg = (c_count * g_count) / len(seq)
-        return cg_count / exp_cg
-    return 0
-
-def calcular_complexidade_sequencia(seq, window_size=100):
-    complexidades = []
-    for i in range(0, len(seq) - window_size + 1, window_size):
-        subseq = seq[i:i+window_size]
-        complexidade = len(set(subseq)) / window_size
-        complexidades.append(complexidade)
-    return np.mean(complexidades)
-
+# ... [funções anteriores permanecem as mesmas] ...
 
 def encontrar_motivos(seq, motivos=['GAATTC', 'GGATCC', 'CTGCAG']):  # EcoRI, BamHI, PstI
     resultados = {}
