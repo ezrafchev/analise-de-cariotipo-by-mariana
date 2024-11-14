@@ -1,16 +1,27 @@
 # Análise de Cariótipos
 
-Este projeto realiza uma análise básica de cariótipos utilizando as bibliotecas BioPython e matplotlib. Ele foi desenvolvido por Mariana Silva de Oliveira.
+Este projeto realiza uma análise detalhada de cariótipos utilizando as bibliotecas BioPython, NumPy e Matplotlib. Ele foi desenvolvido por Mariana Silva de Oliveira.
 
 ## Descrição
 
-O script `analise_cariotipos.py` lê sequências de DNA de um arquivo FASTA, calcula o tamanho e o conteúdo GC de cada cromossomo, e gera um gráfico com essas informações.
+O script `analise_cariotipos.py` lê sequências de DNA de um arquivo FASTA e realiza as seguintes análises:
+
+1. Cálculo do tamanho dos cromossomos
+2. Análise do conteúdo GC e AT
+3. Cálculo do peso molecular
+4. Identificação de regiões repetitivas
+5. Simulação de densidade de genes
+6. Identificação de ilhas CpG
+7. Cálculo da complexidade da sequência
+
+O script gera um gráfico com várias visualizações dessas análises.
 
 ## Requisitos
 
 - Python 3.6+
 - BioPython
-- matplotlib
+- NumPy
+- Matplotlib
 
 ## Instalação
 
@@ -22,7 +33,7 @@ O script `analise_cariotipos.py` lê sequências de DNA de um arquivo FASTA, cal
 
 2. Instale as dependências:
    ```
-   pip install biopython matplotlib
+   pip install biopython numpy matplotlib
    ```
 
 ## Uso
@@ -34,7 +45,7 @@ O script `analise_cariotipos.py` lê sequências de DNA de um arquivo FASTA, cal
    python3 analise_cariotipos.py
    ```
 
-3. O script gerará um arquivo `resultados_cariotipos.png` com os gráficos de análise.
+3. O script gerará um arquivo `resultados_cariotipos.png` com os gráficos de análise e imprimirá resultados detalhados no console.
 
 ## Estrutura do Projeto
 
@@ -44,20 +55,25 @@ O script `analise_cariotipos.py` lê sequências de DNA de um arquivo FASTA, cal
 
 ## Interpretação dos Resultados
 
-O gráfico gerado contém duas partes:
+O gráfico gerado contém seis visualizações:
 
 1. Tamanho dos cromossomos: Mostra o comprimento de cada cromossomo em pares de base.
-2. Conteúdo GC dos cromossomos: Exibe a porcentagem de bases G e C em cada cromossomo.
+2. Composição de bases: Exibe a porcentagem de bases GC e AT em cada cromossomo.
+3. Relação entre conteúdo GC e tamanho: Gráfico de dispersão mostrando a relação entre o conteúdo GC e o tamanho dos cromossomos.
+4. Densidade de genes (simulada): Mostra a densidade simulada de genes em cada cromossomo.
+5. Complexidade da sequência: Exibe a complexidade média da sequência para cada cromossomo.
+6. Ideograma do cariótipo: Uma representação visual simplificada do cariótipo.
 
-Estas informações são úteis para comparar características básicas entre diferentes cromossomos ou entre espécies.
+Além disso, o script imprime informações detalhadas sobre cada cromossomo, incluindo o número de regiões repetitivas e ilhas CpG identificadas.
 
 ## Limitações e Melhorias Futuras
 
-- O script atual realiza apenas análises básicas. Futuras versões poderiam incluir:
-  - Identificação de regiões repetitivas
-  - Análise de genes e elementos regulatórios
+- A simulação de densidade de genes é uma aproximação e não reflete dados reais.
+- A identificação de regiões repetitivas e ilhas CpG pode ser refinada com algoritmos mais sofisticados.
+- Futuros desenvolvimentos poderiam incluir:
+  - Análise de elementos regulatórios
   - Comparações entre espécies
-- A visualização poderia ser melhorada com gráficos interativos
+  - Integração com bancos de dados genômicos
 
 ## Contribuições
 
