@@ -1,4 +1,3 @@
-
 # Análise de Cariótipos
 
 Este projeto realiza uma análise básica de cariótipos utilizando as bibliotecas BioPython e matplotlib. Ele foi desenvolvido por Mariana Silva de Oliveira.
